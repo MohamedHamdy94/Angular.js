@@ -29,7 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["node-modules/bootstrap/dist/bootstrap.boundle.min.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
