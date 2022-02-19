@@ -1,0 +1,24 @@
+<div class="card text-center bg-dark text-white">
+
+  <div class="card-body">
+    <h2 class="card-title">Skills</h2>
+    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti ex optio fugiat pariatur
+      vitae accusantium, dignissimos amet neque numquam ea debitis officia molestias voluptates perspiciatis aperiam
+      esse labore omnis ut? With supporting text below as a natural lead-in to additional content.</p>
+
+    <table class="table table-dark">
+      <tbody>
+        <tr *ngFor="let skill of skills">
+          <td>{{skill.name}}</td>
+          <td>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" [style]="width: {{skill.rang}} %" aria-valuenow="{{skill.rang}}" aria-valuemin="0"
+                aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
