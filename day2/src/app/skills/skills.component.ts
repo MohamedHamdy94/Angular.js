@@ -9,19 +9,19 @@ export class SkillsComponent implements OnInit {
   skills: any =[
     {
       name:"HTML",
-      rang: 90
+      rang: "90%"
     },
     {
       name:"CSS",
-      rang: 60
+      rang: "60%"
     },
     {
       name:"Bootstrap",
-      rang: 80
+      rang: "80%"
     },
     {
       name:"Java Script",
-      rang: 50
+      rang: "50%"
     },
   ]
   constructor() { }
