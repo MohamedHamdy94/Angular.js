@@ -1,0 +1,43 @@
+<div class="container w-50">
+  <form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
+    <div class="mb-3 my-5">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        required
+        ngModel
+        name="InputEmail"
+        #InputEmail="ngModel"
+      />
+      <small class="text-danger" *ngIf="InputEmail.touched">
+        <div *ngIf="InputEmail.errors?.['required']">this field is required</div> </small>
+      <div *ngIf="InputEmail.touched">
+      <small class="text-danger"*ngIf="InputEmail.invalid">this field is invalid</small>
+    </div>
+  </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        pattern="^([a-zA-Z0-9@*#]{8,15})$"
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        required
+        ngModel
+        name="InputPassword"
+        #InputPassword="ngModel"
+      />
+      <small class="text-danger" *ngIf="InputPassword.touched">
+        <div *ngIf="InputPassword.errors?.['required']">this field is required</div> </small>
+      <div *ngIf="InputPassword.touched">
+      <small class="text-danger"*ngIf="InputPassword.invalid">this field is invalid</small>
+    </div>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
