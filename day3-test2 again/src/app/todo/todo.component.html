@@ -1,0 +1,12 @@
+<div class="container bg-secondary">
+
+  <form>
+
+    <div class="form-group ">
+    <label for="exampleInputtodo"><h1>To-Do App!</h1></label>
+    <input #text type="text" class="form-control" id="exampleInputtodo" [value]="" placeholder="to do">
+  </div>
+  <button type="button" (click)="handleTodo(text.value)" class="btn btn-primary">Submit</button>
+</form>
+
+  </div>

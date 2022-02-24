@@ -1,0 +1,14 @@
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{car.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{car.title}}</h5>
+      <p class="card-text">{{car.description}}</p>
+      <h2 class="card-text">{{car.price | countPipe}}</h2>
+
+      <h4 [ngClass]="{'card-text p-2 bg-danger':car.rating.count==0 ,'p-1 bg-psuccess':car.rating.count>0}" > count:{{car.rating.count}}</h4>
+
+      <a href="#" class="btn btn-primary w-100">buy</a>
+  </div>
+    </div>
+
