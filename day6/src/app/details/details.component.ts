@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import  Lists from '../../assets/blogs.json';
 import {Card} from '../interfaces/card';
+import { ProductsService } from '../services/products.service';
 // import { cards } from '../product-list/product-list.component';
 
 @Component({
@@ -10,19 +11,22 @@ import {Card} from '../interfaces/card';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  dImg="https://www.certificate.digital/images/resize/resizing.png"
 
-  card = Lists  ;
+  card :any  ;
   // Lists:any;
-  list:any;
+  cards :any  ;
+  
+  constructor(private active :ActivatedRoute ,   private productsarvice: ProductsService) {
+    // const ActiveId = this.active.snapshot.params['id']
+    // this.card=this.cards.find((iid:any) => iid.id == ActiveId)
 
-  constructor(private active :ActivatedRoute ) { 
-    const ActiveId = this.active.snapshot.params['id']
-    this.list=this.card.find((iid:any) => iid.id == ActiveId)
-    // console.log(this.List)
+    // console.log(this.card)
   }
 
   ngOnInit(): void {
+    // this.productsarvice.gitproducts().subscribe(val => this.cards=val);
+    // const ActiveId = this.active.snapshot.params['id'];
+    // this.card=this.cards.find((iid:any) => iid.id == ActiveId)
   }
 
 }

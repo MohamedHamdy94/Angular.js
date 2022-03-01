@@ -7,11 +7,11 @@ import { CounterService } from '../services/counter.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  counter :any;
+  counter = 0
   constructor( private Counterserver : CounterService) { }
 
   ngOnInit(): void {
-    this.counter= this.Counterserver.getCounterValue()
+    this.Counterserver.getCounterValue().subscribe((val) => this.counter = val);
   }
 
 }

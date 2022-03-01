@@ -10,9 +10,9 @@ import { AuthGuardGuard } from './auth-guard.guard';
 import { CounterComponent } from './counter/counter.component';
 
 const routes: Routes = [
-  {path:'counter',component:CounterComponent },
-
+  
   {path:'',component:ProductListComponent},
+  {path:'counter',component:CounterComponent },
   {path:'Login',component:LoginComponent},
   {path:'Details/:id',component:DetailsComponent},
   {path:'Register',component:RegisterComponent},

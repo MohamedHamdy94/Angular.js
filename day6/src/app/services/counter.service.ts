@@ -11,7 +11,7 @@ private counter = new BehaviorSubject(0);
 return this.counter;
   };
   setCounterValue(newCounterValue:number){
-    return this.counter.next(newCounterValue)
+  this.counter.next(newCounterValue)
   }
 }
 

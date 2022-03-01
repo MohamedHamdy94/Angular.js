@@ -8,6 +8,6 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
   gitproducts(){
-    return this.http.get('https://fakestoreapi.com/products/1');
+    return this.http.get('https://fakestoreapi.com/products');
   }
 }
