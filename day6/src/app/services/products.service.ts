@@ -10,4 +10,9 @@ export class ProductsService {
   gitproducts(){
     return this.http.get('https://fakestoreapi.com/products');
   }
+  
+  gitproductsById(id : any){
+    return this.http.get(`https://fakestoreapi.com/products/${id}`);
+
+  }
 }

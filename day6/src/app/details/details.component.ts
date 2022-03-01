@@ -1,32 +1,37 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import  Lists from '../../assets/blogs.json';
-import {Card} from '../interfaces/card';
+import Lists from '../../assets/blogs.json';
+import { Card } from '../interfaces/card';
 import { ProductsService } from '../services/products.service';
 // import { cards } from '../product-list/product-list.component';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-
-  card :any  ;
-  // Lists:any;
-  cards :any  ;
-  
-  constructor(private active :ActivatedRoute ,   private productsarvice: ProductsService) {
-    // const ActiveId = this.active.snapshot.params['id']
-    // this.card=this.cards.find((iid:any) => iid.id == ActiveId)
-
-    // console.log(this.card)
+  card: any;
+  // ActiveId :any;
+  constructor(
+    private active: ActivatedRoute,
+    private productsarvice: ProductsService
+  ) {
+    // this.ActiveId = this.active.snapshot.params['id']
   }
 
   ngOnInit(): void {
-    // this.productsarvice.gitproducts().subscribe(val => this.cards=val);
     // const ActiveId = this.active.snapshot.params['id'];
-    // this.card=this.cards.find((iid:any) => iid.id == ActiveId)
-  }
+    const ActiveId = this.active.snapshot.paramMap.get('id');
 
+    this.productsarvice.gitproductsById(ActiveId).subscribe((val: any) => {
+      this.card = val;
+      console.log(val);
+    });
+
+    // this.productsarvice.gitproductsById(this.ActiveId).subscribe((val :any) => this.card = val);
+    console.log(ActiveId);
+
+    console.log(this.card);
+  }
 }
