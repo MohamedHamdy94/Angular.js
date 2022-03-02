@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CountPipePipe } from './count-pipe.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
@@ -18,7 +18,10 @@ import { NotFoundpageComponent } from './not-foundpage/not-foundpage.component';
 import { DetailsComponent } from './details/details.component';
 import { AdminComponent } from './admin/admin.component';
 import { CounterComponent } from './counter/counter.component';
-
+import { RequestInterceptor } from './request.interceptor';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { LoaderService } from './services/loader.service';
+// import { MatProgressSpinnerModule } from '@angular/material/progress-spinner' ;
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,15 +35,23 @@ import { CounterComponent } from './counter/counter.component';
     DetailsComponent,
     AdminComponent,
     CounterComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    //  MatProgressSpinnerModul
   ],
-  providers: [],
+  providers: [LoaderService ,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

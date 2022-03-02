@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'Register',component:RegisterComponent},
   {path:'admin',component:AdminComponent,canActivate:[AuthGuardGuard]},
   {path:'**',component:NotFoundpageComponent},
-
+{path:'auth',loadChildren:()=>import('./auth/auth.module').then(module => module.AuthModule)}
 ];
 
 @NgModule({
